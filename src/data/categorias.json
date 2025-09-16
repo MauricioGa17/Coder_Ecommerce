@@ -1,0 +1,23 @@
+[
+    {
+      "id": 1,
+      "name": "Electrónica",
+      "slug": "electronica",
+      "imagen": "https://c92abd90.delivery.rocketcdn.me/main-files/uploads/2019/10/marketing-para-ecommece-electronica-de-consumo-doofinder.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Moda",
+      "slug": "moda"
+    },
+    {
+      "id": 3,
+      "name": "Hogar y Cocina",
+      "slug": "hogar-cocina"
+    },
+    {
+      "id": 4,
+      "name": "Deportes",
+      "slug": "deportes"
+    }
+]
