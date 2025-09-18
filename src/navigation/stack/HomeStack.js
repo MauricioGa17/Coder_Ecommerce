@@ -17,16 +17,8 @@ const HomeStack = () => {
 
     return (
         <Stack.Navigator
-            screenOptions={({ route }) => {
-                const mostrarCategoriaSeleccionada = route.name === 'ProductosScreen';
-                return {
-                    header: () => (
-                        <Header
-                            titulo="Coder Ecommerce"
-                            subTitulo={mostrarCategoriaSeleccionada ? categoriaSeleccionada.name : null}
-                        />
-                    ),
-                };
+            screenOptions={{
+                header: () => <Header/> // Este es un components
             }}
         >
             <Stack.Screen name="CategoriasScreen" component={CategoriasScreen} options={{ title: "Categorias" }} />

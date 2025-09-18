@@ -1,4 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { formatoMonedaMXN } from '../../helpers/formatoMoneda'
 
 //Screens
 import CartScreen from '../../screens/CartScreen';
@@ -16,7 +17,7 @@ const CartStack = () => {
     return (
         <Stack.Navigator
             screenOptions={{
-                header: () => <Header titulo={'Mi Carrito'} subTitulo={`Productos: ${cartItems.length} Total: ${total.toString()}`}/> 
+                header: () => <Header titulo={'Mi Carrito'} subTitulo={`Productos: ${cartItems.length} Total: ${formatoMonedaMXN(total.toString())}`}/> 
             }}
         >
             <Stack.Screen name="CartScreen" component={CartScreen} options={{ title: "Cart" }} />
