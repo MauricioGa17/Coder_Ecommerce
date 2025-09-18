@@ -1,0 +1,162 @@
+[
+  {
+    "id": 1,
+    "name": "iPhone 14 Pro Max",
+    "description": "Smartphone de alta gama con cámara profesional y chip A16 Bionic.",
+    "price": 1299.99,
+    "categoria": "Celulares",
+    "image_url": "https://images.apple.com/v/iphone-14-pro/a/images/overview/hero/hero_static__e6khcva4hkeq_large.jpg",
+    "stock": 45,
+    "valoracion": 4.8
+  },
+  {
+    "id": 2,
+    "name": "Samsung Galaxy S23 Ultra",
+    "description": "Celular Android con cámara de 200 MP y pantalla AMOLED 120Hz.",
+    "price": 1199.00,
+    "categoria": "Celulares",
+    "image_url": "https://images.samsung.com/is/image/samsung/p6pim/levant/galaxy-s23/gallery/galaxy-s23-ultra-green.jpg",
+    "stock": 52,
+    "valoracion": 4.7
+  },
+  {
+    "id": 3,
+    "name": "Xiaomi Redmi Note 12",
+    "description": "Smartphone económico con buen rendimiento y cámara cuádruple.",
+    "price": 249.99,
+    "categoria": "Celulares",
+    "image_url": "https://i01.appmifile.com/webfile/globalimg/products/pc/redmi-note-12/overview01.png",
+    "stock": 80,
+    "valoracion": 4.4
+  },
+  {
+    "id": 4,
+    "name": "Google Pixel 7",
+    "description": "Teléfono de Google con Android puro y excelente cámara.",
+    "price": 699.00,
+    "categoria": "Celulares",
+    "image_url": "https://store.google.com/product/images/2022_pixel_7_family_carousel_max_width_fade/pixel7-snow-carousel.png",
+    "stock": 35,
+    "valoracion": 4.6
+  },
+  {
+    "id": 5,
+    "name": "Motorola Edge 40",
+    "description": "Diseño elegante con pantalla OLED curva y carga rápida.",
+    "price": 599.99,
+    "categoria": "Celulares",
+    "image_url": "https://motorolaus.vtexassets.com/arquivos/ids/158929-800-auto/Motorola-Edge-40.png",
+    "stock": 38,
+    "valoracion": 4.5
+  },
+  {
+    "id": 6,
+    "name": "Sony WH-1000XM5",
+    "description": "Auriculares con cancelación de ruido líder en la industria.",
+    "price": 399.99,
+    "categoria": "Electronica",
+    "image_url": "https://m.media-amazon.com/images/I/71o8Q5XJS5L._AC_SL1500_.jpg",
+    "stock": 64,
+    "valoracion": 4.9
+  },
+  {
+    "id": 7,
+    "name": "Smart TV LG 55\" 4K OLED",
+    "description": "Televisor OLED con resolución Ultra HD y Dolby Vision.",
+    "price": 1499.00,
+    "categoria": "Electronica",
+    "image_url": "https://www.lg.com/us/images/tvs/md07504985/gallery/desktop-01.jpg",
+    "stock": 27,
+    "valoracion": 4.8
+  },
+  {
+    "id": 8,
+    "name": "Consola PlayStation 5",
+    "description": "Nueva generación de videojuegos con gráficos 4K.",
+    "price": 499.99,
+    "categoria": "Electronica",
+    "image_url": "https://cdn.pocket-lint.com/r/s/1200x/assets/images/152142-games-review-sony-playstation-5-review-image1-ozwihckkij.jpg",
+    "stock": 30,
+    "valoracion": 4.9
+  },
+  {
+    "id": 9,
+    "name": "Apple Watch Series 9",
+    "description": "Reloj inteligente con sensor de temperatura y pantalla always-on.",
+    "price": 429.00,
+    "categoria": "Electronica",
+    "image_url": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MQTW3_VW_34FR_WF_CO_GEO_EMEA?wid=2000&hei=2000&fmt=jpeg&qlt=90",
+    "stock": 44,
+    "valoracion": 4.6
+  },
+  {
+    "id": 10,
+    "name": "Tablet Samsung Galaxy Tab S9",
+    "description": "Tableta Android de alto rendimiento con S-Pen incluido.",
+    "price": 899.00,
+    "categoria": "Electronica",
+    "image_url": "https://images.samsung.com/is/image/samsung/assets/global/tablets/galaxy-tab-s9/gallery/tab-s9-front.jpg",
+    "stock": 28,
+    "valoracion": 4.7
+  },
+  {
+    "id": 11,
+    "name": "Auriculares JBL Tune 510BT",
+    "description": "Auriculares inalámbricos con sonido JBL Pure Bass.",
+    "price": 49.99,
+    "categoria": "Electronica",
+    "image_url": "https://m.media-amazon.com/images/I/61CBA1DdM9L._AC_SL1500_.jpg",
+    "stock": 90,
+    "valoracion": 4.3
+  },
+  {
+    "id": 12,
+    "name": "iPhone SE (3ª Gen)",
+    "description": "Compacto, potente y asequible con chip A15 Bionic.",
+    "price": 429.00,
+    "categoria": "Celulares",
+    "image_url": "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/iphone-se-2022-og-202203?wid=1200&hei=630&fmt=jpeg&qlt=95",
+    "stock": 61,
+    "valoracion": 4.4
+  },
+  {
+    "id": 13,
+    "name": "Huawei P60 Pro",
+    "description": "Innovación en fotografía móvil y diseño elegante.",
+    "price": 899.00,
+    "categoria": "Celulares",
+    "image_url": "https://consumer.huawei.com/content/dam/huawei-cbg-site/common/mkt/pdp/phones/p60-pro/images/p60-pro-kv.jpg",
+    "stock": 22,
+    "valoracion": 4.5
+  },
+  {
+    "id": 14,
+    "name": "DJI Mini 3 Drone",
+    "description": "Drone compacto con cámara 4K y funciones inteligentes.",
+    "price": 759.00,
+    "categoria": "Electronica",
+    "image_url": "https://www1.djicdn.com/cms/uploads/52f51d5c4dca4e909f1efb2f55be02b6.jpg",
+    "stock": 19,
+    "valoracion": 4.8
+  },
+  {
+    "id": 15,
+    "name": "Laptop Lenovo IdeaPad 5",
+    "description": "Portátil ideal para productividad y entretenimiento.",
+    "price": 649.99,
+    "categoria": "Electronica",
+    "image_url": "https://www.lenovo.com/medias/lenovo-laptop-ideapad-5-15-intel-subseries-hero.png",
+    "stock": 33,
+    "valoracion": 4.4
+  },
+  {
+    "id": 16,
+    "name": "Samsung Galaxy Z Fold5",
+    "description": "Celular plegable de última generación con multitarea mejorada.",
+    "price": 1799.00,
+    "categoria": "Celulares",
+    "image_url": "https://images.samsung.com/is/image/samsung/p6pim/levant/galaxy-z-fold5/gallery/galaxy-z-fold5-highlights.jpg",
+    "stock": 18,
+    "valoracion": 4.9
+  }
+]

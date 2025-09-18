@@ -6,8 +6,14 @@ export const shopApi = createApi({
     reducerPath: "shopApi",
     baseQuery: fetchBaseQuery({ baseUrl: rtBdBaseUrl }),
     endpoints: (builder) => ({
-        getCategorias: builder.query({ query: () => 'categorias.json' })
+        getCategorias: builder.query({ query: () => 'categorias.json' }),
+        getProductosPorCategoria: builder.query({
+            query: (categoria) => `productos.json?orderBy="categoria"&equalTo="${categoria}"`,
+            transformResponse: (response) => {
+                return Object.values(response)
+            }
+        })
     })
 })
 
-export const { useGetCategoriasQuery } = shopApi
+export const { useGetCategoriasQuery, useGetProductosPorCategoriaQuery } = shopApi
