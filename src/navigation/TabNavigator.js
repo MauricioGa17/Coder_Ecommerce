@@ -5,6 +5,7 @@ import Icon from '@expo/vector-icons/Ionicons';
 import HomeStack from "./stack/HomeStack";
 import CartStack from "./stack/CartStack";
 import OrderStack from "./stack/OrderStack";
+import PerfilStack from "./stack/PerfilStack";
 
 const Tab = createBottomTabNavigator();
 
@@ -25,6 +26,8 @@ const TabNavigator = () => {
                     iconName = 'cart';
                 } else if (route.name === 'Order') {
                     iconName = 'bag';
+                } else if (route.name === 'Perfil') {
+                    iconName = 'person';
                 }
 
                 return (
@@ -40,6 +43,7 @@ const TabNavigator = () => {
             <Tab.Screen name="Home" component={HomeStack}/>
             <Tab.Screen name="Cart" component={CartStack}/>
             <Tab.Screen name="Order" component={OrderStack}/>
+            <Tab.Screen name="Perfil" component={PerfilStack}/>
         </Tab.Navigator>       
     );
 }

@@ -6,7 +6,7 @@ import * as Yup from "yup";
 
 //Redux
 import { useLoginMutation } from '../../services/authApi'
-import { setEmail } from '../../redux/slices/userSlice.js'
+import { setEmail, setLocalId } from '../../redux/slices/userSlice.js'
 import { useDispatch } from "react-redux";
 
 const LoginScreen = ({ navigation }) => {
@@ -29,6 +29,7 @@ const LoginScreen = ({ navigation }) => {
     useEffect(() => {
         if(result.status === "fulfilled"){
             dispatch(setEmail(result.data.email))
+            dispatch(setLocalId(result.data.localId))
         }
     }, [result])
 
