@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react'
-import { ActivityIndicator, Image, Pressable, StyleSheet, Text, View } from 'react-native'
+import { ActivityIndicator, Image, Pressable, StyleSheet, Text, TouchableOpacity, View, Alert } from 'react-native'
 import CamaraIcono from '../components/CamaraIcono';
 import { useDispatch, useSelector } from 'react-redux';
 import * as ImagePicker from 'expo-image-picker'
 import * as Location from 'expo-location'
+import Icon from '@expo/vector-icons/Ionicons';
 
 import { usePutProfilePictureMutation } from '../services/perfilApi'
-import { setUserImage } from '../redux/slices/userSlice'
+import { setEmail, setLocalId, setUserImage } from '../redux/slices/userSlice'
 import MapView, { Marker } from 'react-native-maps';
+import { clearSession } from '../db';
 
 const PerfilScreen = () => {
 
@@ -40,6 +42,24 @@ const PerfilScreen = () => {
         }
     }
 
+    const handleLogout = () => {
+        const confirmLogout = async () => {
+            dispatch(setEmail(""));
+            setLocalId("");
+            await clearSession();
+        };
+
+        Alert.alert(
+            "Confirmación",
+            "¿Estás seguro de que deseas cerrar tu sesión?",
+            [
+                { text: "No", style: "cancel" },
+                { text: "Sí", onPress: () => confirmLogout() }
+            ],
+            { cancelable: true }
+        );
+    };
+
     useEffect(() => {
         async function getCurrentLocation(){
             try {
@@ -57,8 +77,7 @@ const PerfilScreen = () => {
                     )
                     const data = await response.json()
                     setLocation(location)
-                    setAddress(data.result[0].formatted_address)
-                    console.log("Datos", data)
+                    setAddress(data.results[0].formatted_address)
                 }
             }catch (error) {
                 setErrorMessage(error)
@@ -84,38 +103,37 @@ const PerfilScreen = () => {
 
             <Text style={styles.perfilDatos}>Email: {user}</Text>
 
+            { address && (
+                <View style={{ marginTop: 10 }}>
+                    <Text style={{ textAlign: 'center', fontSize: 10 }}>{ address }</Text>
+                </View>
+            )}
+
             <View style={styles.mapContainer}>
                 {
-                    location
-                    ? (
-                        <MapView
-                            style={styles.map}
-                            initialRegion={{
-                                latitude: location.coords.latitude,
-                                longitude: location.coords.longitude,
-                                latitudeDelta: 0.0922,
-                                longitudeDelta: 0.0421
-                            }}
-                        >
-                            <Marker coordinate={{ "latitude": location.coords.latitude, "longitude": location.coords.longitude }} title='Ecommerce'/>
-                        </MapView>
-                    )
-                    : locationLoaded
-                        ? <Text>Hubo un problema al obtener la ubicacion</Text>
-                        : <ActivityIndicator/>
+                    locationLoaded
+                    ? <ActivityIndicator/>
+                    : location 
+                        ? (
+                            <MapView
+                                style={styles.map}
+                                initialRegion={{
+                                    latitude: location.coords.latitude,
+                                    longitude: location.coords.longitude,
+                                    latitudeDelta: 0.0922,
+                                    longitudeDelta: 0.0421
+                                }}
+                            >
+                                <Marker coordinate={{ "latitude": location.coords.latitude, "longitude": location.coords.longitude }} title='Ecommerce'/>
+                            </MapView>
+                        ) : <Text>Hubo un problema al obtener la ubicacion</Text>   
                 }
-
-                <View>
-                    <View>
-                        <Text>{ address || '' }</Text>
-                    </View>
-                </View>
-                <View>
-                    <View>
-                        <Text>{ address || '' }</Text>
-                    </View>
-                </View>
             </View>
+
+            <TouchableOpacity onPress={() => handleLogout()} style={{ backgroundColor: '#F2320C', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', gap: 10, width: '100%', borderRadius: 10, padding: 5 }}>
+                <Icon name="exit" size={32} color="#fff" />
+                <Text style={{ color: 'white', fontSize: 14, fontWeight: '700' }}>Logout</Text>
+            </TouchableOpacity>
         </View>
     )
 }

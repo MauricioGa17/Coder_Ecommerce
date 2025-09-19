@@ -1,6 +1,6 @@
 // src/screens/LoginScreen.jsx
 import { useEffect, useState } from "react";
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Pressable, Switch } from "react-native";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
@@ -8,12 +8,14 @@ import * as Yup from "yup";
 import { useLoginMutation } from '../../services/authApi'
 import { setEmail, setLocalId } from '../../redux/slices/userSlice.js'
 import { useDispatch } from "react-redux";
+import { clearSession, saveSession } from "../../db/index.js";
 
 const LoginScreen = ({ navigation }) => {
 
     const dispatch = useDispatch()
 
     const [mostrarPassword, setMostrarPassword] = useState(true);
+    const [ persistSession, setPersistSession ] = useState(false)
     const [error, setError] = useState("");
     const [ triggerLogin, result ] = useLoginMutation();
 
@@ -27,10 +29,20 @@ const LoginScreen = ({ navigation }) => {
     };
 
     useEffect(() => {
-        if(result.status === "fulfilled"){
-            dispatch(setEmail(result.data.email))
-            dispatch(setLocalId(result.data.localId))
-        }
+        (async () => {
+            if(result.status === "fulfilled"){
+            try {
+                if(persistSession){
+                    await saveSession(result.data.localId, result.data.email)
+                    dispatch(setEmail(result.data.email))
+                    dispatch(setLocalId(result.data.localId))
+                }else{
+                    await clearSession();
+                }
+            } catch (error) {
+                console.log("Error al guardar la session");
+            }
+        }})()
     }, [result])
 
     return (
@@ -86,6 +98,15 @@ const LoginScreen = ({ navigation }) => {
                         <TouchableOpacity onPress={() => navigation.navigate("RegisterScreen")}>
                             <Text style={styles.link}>No tienes una cuenta? Crea Una</Text>
                         </TouchableOpacity>
+
+                        <View style={styles.recordarme}>
+                            <Text style={{ color: '#000' }}>¿Mantener la Sesion Iniciada?</Text>
+                            <Switch
+                                onValueChange={() => setPersistSession(!persistSession)}
+                                value={persistSession}
+                                trackColor={{ false: '#767577', true: '#81b0ff' }}
+                            />
+                        </View>
                     </View>
                 )}
             </Formik>
@@ -153,8 +174,21 @@ const styles = StyleSheet.create({
         fontSize: 16, 
         fontWeight: "600" 
     },
-    link: { marginTop: 12, textAlign: "center", color: "#2D90C4" },
-    errorText: { color: "#e53935", marginTop: 6 },
+    link: { 
+        marginTop: 12, 
+        textAlign: "center", 
+        color: "#2D90C4" 
+    },
+    errorText: { 
+        color: "#e53935", 
+        marginTop: 6 
+    },
+    recordarme:{
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 9
+    }
 });
 
 export default LoginScreen
